@@ -8,3 +8,9 @@
 color1：カーソルの外枠  
 color2：カーソルの内側  
 自分用カーソルクラス  
+
+###Window_Title
+setしたテキストを表示する  
+
+###Window_Description
+yの位置にsetしたテキストを表示する  
