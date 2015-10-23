@@ -90,13 +90,13 @@ class Window_Items < Window_RK
   # ● 項目の幅を取得
   #--------------------------------------------------------------------------
   def item_width
-    RK::HorrorItems::ItemWidth
+    ItemWidth
   end
   #--------------------------------------------------------------------------
   # ● 項目の高さを取得
   #--------------------------------------------------------------------------
   def item_height
-    RK::HorrorItems::ItemHeight
+    ItemHeight
   end
   #--------------------------------------------------------------------------
   # ● 横に項目が並ぶときの空白の幅を取得
@@ -154,9 +154,8 @@ class Window_Items < Window_RK
   # ● アイコンの描画
   #--------------------------------------------------------------------------
   def draw_icon(icon_index, x, y, enabled = true)
-    item_col = RK::HorrorItems::IconCols
-    bitmap = Cache.system( RK::HorrorItems::IconSet )
-    rect = Rect.new(icon_index % item_col * item_width, icon_index / 4 * item_height, item_width, item_height)
+    bitmap = Cache.system( IconSet )
+    rect = Rect.new(icon_index % IconCols * item_width, icon_index / IconCols * item_height, item_width, item_height)
     contents.blt(x, y, bitmap, rect, enabled ? 255 : translucent_alpha)
   end
   #--------------------------------------------------------------------------
@@ -178,7 +177,7 @@ class Window_Items < Window_RK
     @box.dispose if !equip && @box
     if equip && item && equip.id == item.id
       @box.dispose if @box
-      @box = Sprite_Items_Cursor.new(rect.width, rect.height, RK::HorrorItems::Color1, RK::HorrorItems::Color2)
+      @box = Sprite_Items_Cursor.new(rect.width, rect.height, Color1, Color2)
       @box.x = rect.x + self.x + standard_padding
       @box.y = rect.y + self.y + standard_padding
     end
