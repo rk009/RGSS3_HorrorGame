@@ -16,7 +16,7 @@ setしたテキストを表示する
 yの位置にsetしたテキストを表示する  
 
 ###Scene_Items
-継承元クラス：Window_RK
+継承元クラス：Window_RK  
 使用ウィンドウ：Window_Items, Window_Title, Window_Description
 
 ```ruby:qiita.rb
