@@ -15,11 +15,14 @@ setしたテキストを表示する
 ###Window_Description
 yの位置にsetしたテキストを表示する  
 
-## Scene_Items
-これで呼び出す
+###Scene_Items
+継承元クラス：Window_RK
+使用ウィンドウ：Window_Items, Window_Title, Window_Description
+
 ```ruby:qiita.rb
 SceneManager.call( Scene_Items )
 ```
-8アイテムのみ描写可能なアイテムウィンドウです。  
-アイテムのアイコンセットやタイトルを自由に決めることができます。  
+
+8アイテムのみ描写可能なアイテムウィンドウになる  
+アイテムのアイコンセットやタイトルを自由に決めることができる  
 
