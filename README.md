@@ -14,3 +14,12 @@ setしたテキストを表示する
 
 ###Window_Description
 yの位置にsetしたテキストを表示する  
+
+## Scene_Items
+これで呼び出す
+```ruby:qiita.rb
+SceneManager.call( Scene_Items )
+```
+8アイテムのみ描写可能なアイテムウィンドウです。  
+アイテムのアイコンセットやタイトルを自由に決めることができます。  
+
