@@ -14,15 +14,12 @@ module RK
 
     # 使用アイコンセット
     IconSet = "WeaponSet"
-    
-    # アイコンセットの列数
-    IconCols = 4
 
     # アイテムのアイコンサイズ
     ItemWidth = 120
     ItemHeight = 120
     
-    # カーソルの色
+    # 装備アイテムのボックスの色
     Color1 = Color.new(255, 128, 0, 200)
     Color2 = Color.new(255, 128, 0, 96)
 
@@ -155,7 +152,8 @@ class Window_Items < Window_RK
   #--------------------------------------------------------------------------
   def draw_icon(icon_index, x, y, enabled = true)
     bitmap = Cache.system( IconSet )
-    rect = Rect.new(icon_index % IconCols * item_width, icon_index / IconCols * item_height, item_width, item_height)
+    icon_cols = bitmap.width / item_width
+    rect = Rect.new(icon_index % icon_cols * item_width, icon_index / icon_cols * item_height, item_width, item_height)
     contents.blt(x, y, bitmap, rect, enabled ? 255 : translucent_alpha)
   end
   #--------------------------------------------------------------------------
