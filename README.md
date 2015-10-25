@@ -16,13 +16,26 @@ setしたテキストを表示する
 yの位置にsetしたテキストを表示する  
 
 ###Scene_Items
-継承元クラス：Window_RK  
-使用ウィンドウ：Window_Items, Window_Title, Window_Description
+####継承元クラス：
+Window_RK  
+####使用ウィンドウ：
+Window_Items, Window_Title, Window_Description
 
 ```ruby:qiita.rb
 SceneManager.call( Scene_Items )
 ```
+####仕様
+- Enterキーで装備する
+- Sキーで装備品を外す
+- 8アイテムのみ描写可能なアイテムウィンドウになる
+- アイテムのアイコンセットやタイトルを自由に決めることができる
 
-8アイテムのみ描写可能なアイテムウィンドウになる  
-アイテムのアイコンセットやタイトルを自由に決めることができる  
+###Scene_Menu
+####継承元クラス：
+Window_RK
+####使用ウィンドウ：
+Window_Title, Window_MenuList, Window_MenuMain
 
+####仕様
+- モジュールで簡単にコマンドを追加できる
+- Mainはまだ決定していない（装備品を描画の予定）
