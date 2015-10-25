@@ -31,7 +31,7 @@ end
 #------------------------------------------------------------------------------
 # 　アイテム画面装備用カーソルスプライト
 #==============================================================================
-class Sprite_Items_Cursor < Sprite_Cursor
+class Sprite_ItemCursor < Sprite_Cursor
   #--------------------------------------------------------------------------
   # ● カーソルを作成
   #--------------------------------------------------------------------------
@@ -152,6 +152,7 @@ class Window_Items < Window_RK
   #--------------------------------------------------------------------------
   def draw_icon(icon_index, x, y, enabled = true)
     bitmap = Cache.system( IconSet )
+    icon_index -= 1
     icon_cols = bitmap.width / item_width
     rect = Rect.new(icon_index % icon_cols * item_width, icon_index / icon_cols * item_height, item_width, item_height)
     contents.blt(x, y, bitmap, rect, enabled ? 255 : translucent_alpha)
@@ -163,8 +164,10 @@ class Window_Items < Window_RK
     item = @data[i]
     if item
       rect = item_rect(i)
-      rect.x += 2
       draw_icon(item.id, rect.x, rect.y)
+      rect.x += 8
+      contents.font.name = "HGP明朝E"
+      contents.font.size = 14
       draw_text(rect.x, rect.y, rect.width, 30, item.name)
     end
   end
@@ -175,7 +178,7 @@ class Window_Items < Window_RK
     @box.dispose if !equip && @box
     if equip && item && equip.id == item.id
       @box.dispose if @box
-      @box = Sprite_Items_Cursor.new(rect.width, rect.height, Color1, Color2)
+      @box = Sprite_ItemCursor.new(rect.width, rect.height, Color1, Color2)
       @box.x = rect.x + self.x + standard_padding
       @box.y = rect.y + self.y + standard_padding
     end
@@ -205,6 +208,13 @@ class Window_Items < Window_RK
     super
     @box.update if @box && equip
   end
+  #--------------------------------------------------------------------------
+  # ● 解放
+  #--------------------------------------------------------------------------
+  def dispose
+    @box.dispose if @box
+    super
+  end
 end
 
 #==============================================================================
@@ -214,7 +224,6 @@ end
 #==============================================================================
 
 class Scene_Items < Scene_ItemBase
-  include Base
   #--------------------------------------------------------------------------
   # ● 開始処理
   #--------------------------------------------------------------------------
