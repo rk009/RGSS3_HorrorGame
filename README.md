@@ -37,3 +37,11 @@ SceneManager.call( Scene_Items )
 #####仕様
 - モジュールで簡単にコマンドを追加できる
 - Mainはまだ決定していない（装備品を描画の予定）
+
+---
+
+####Scene_Save/Load
+#####継承元クラス：Scene_Files
+#####使用ウィンドウ：Window_Title, Window_Description, WIndow_Save/Load
+- Scene_Filesでセーブとロードの大元のシーン作成
+- 背景や中身の文字列は模索中。まだできていない
